@@ -1,0 +1,514 @@
+/* Estilo geral */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(to bottom, #1e3c72, #2a5298);
+    color: #f0f0f0;
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.news-item,
+.menu,
+.cta-button,
+.show-more-btn,
+.close-btn,
+.whatsapp-button {
+    transition: all 0.3s ease;
+}
+
+/* Estilo do Main */
+main {
+    flex: 1;
+    padding: 30px 15px;
+}
+
+/* Estilo do Header */
+header {
+    background: linear-gradient(90deg, #0f3460, #16213e);
+    padding: 15px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 1000;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1001;
+}
+
+.logo {
+    position: relative;
+    z-index: 1002;
+}
+
+.logo img {
+    width: 120px;
+    filter: drop-shadow(0 0 10px rgba(0, 123, 255, 0.7))
+            drop-shadow(0 0 20px rgba(0, 123, 255, 0.5))
+            drop-shadow(0 0 30px rgba(0, 123, 255, 0.3));
+    transition: filter 0.3s ease;
+}
+
+.logo img:hover {
+    filter: drop-shadow(0 0 15px rgba(0, 123, 255, 0.8))
+            drop-shadow(0 0 25px rgba(0, 123, 255, 0.6))
+            drop-shadow(0 0 35px rgba(0, 123, 255, 0.4));
+}
+
+/* Estilo do Menu */
+/* Efeito Neon na Barra do Menu */
+.menu {
+    display: flex;
+    gap: 20px;
+    background: linear-gradient(90deg, #0f3460, #16213e);
+    border-radius: 10px;
+    padding: 10px 20px;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5), 0 0 20px rgba(0, 123, 255, 0.5); /* Efeito neon azul */
+    transition: background-color 0.3s, box-shadow 0.3s;
+    align-items: center;
+    position: relative;
+    z-index: 1001;
+}
+
+.menu:hover {
+    background: linear-gradient(90deg, #1e3c72, #2a5298);
+    box-shadow: 0 0 20px rgba(0, 123, 255, 0.8), 0 0 40px rgba(0, 123, 255, 0.8); /* Intensifica o efeito ao passar o mouse */
+}
+
+.menu-list {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.menu-link {
+    text-align: center;
+    font-size: 18px;
+    padding: 10px 15px;
+    color: #f0f0f0;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s, transform 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.menu-link img {
+    width: 24px;
+    height: 24px;
+}
+
+.menu-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #e94560;
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s;
+}
+
+.menu-link:hover {
+    color: #e94560;
+    transform: scale(1.1);
+}
+
+.menu-link:hover::after {
+    width: 100%;
+}
+
+.fixed-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(90deg, #0f3460, #16213e);
+    z-index: 1000;
+    transition: top 0.3s;
+    padding: 15px 20px; /* Mantenha o mesmo padding do header original */
+}
+
+.header-container {
+    transition: margin-top 0.3s; /* Para suavizar a transição do menu */
+}
+
+/* Botão de ação */
+.cta-button {
+    background: linear-gradient(145deg, #e94560, #d63447);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background 1s ease, color 1s ease, box-shadow 1s ease;
+    box-shadow: 0 0 10px rgba(233, 69, 96, 0.5), 0 0 20px rgba(233, 69, 96, 0.5), 0 0 30px rgba(233, 69, 96, 0.5);
+}
+
+.cta-button:hover {
+    background: linear-gradient(145deg, #d63447, #e94560);
+    color: #fff;
+    box-shadow: 0 0 20px rgba(233, 69, 96, 0.8), 0 0 40px rgba(233, 69, 96, 0.8), 0 0 60px rgba(233, 69, 96, 0.8);
+}
+
+.instagram-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.cta-button a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cta-button a:hover {
+    color: inherit;
+}
+
+/* Menu no mobile */
+@media (max-width: 768px) {
+    .menu {
+        display: none;
+        flex-direction: column;
+        background-color: #16213e;
+        position: absolute;
+        top: 80px;
+        right: 0;
+        width: 100%;
+        padding: 15px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        z-index: 999;
+    }
+
+    .menu.show {
+        display: flex;
+    }
+
+    .menu-list {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .hamburger-btn {
+        display: block;
+    }
+
+    .cta-button {
+        display: none;
+    }
+}
+
+/* Botão Hambúrguer */
+.hamburger-btn {
+    display: none; /* Esconde o botão no desktop */
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+    padding: 10px;
+}
+
+.hamburger-icon {
+    width: 30px;
+    height: 3px;
+    background-color: #f0f0f0;
+    display: block;
+    position: relative;
+    transition: all 0.3s;
+}
+
+.hamburger-icon::before,
+.hamburger-icon::after {
+    content: '';
+    width: 30px;
+    height: 3px;
+    background-color: #f0f0f0;
+    position: absolute;
+    left: 0;
+    transition: all 0.3s;
+}
+
+.hamburger-icon::before {
+    top: -10px;
+}
+
+.hamburger-icon::after {
+    top: 10px;
+}
+
+.hamburger-btn.active .hamburger-icon {
+    background-color: transparent;
+}
+
+.hamburger-btn.active .hamburger-icon::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.hamburger-btn.active .hamburger-icon::after {
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+@media (max-width: 768px) {
+    .hamburger-btn {
+        display: block; /* Exibe o botão no mobile */
+    }
+
+    .menu {
+        display: none;
+    }
+}
+
+/* Estilo do Main */
+.news-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.news-item {
+    background: linear-gradient(145deg, #1f4068, #1b1b2f);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.news-item.hidden {
+    display: none;
+}
+
+.news-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.5);
+}
+
+.news-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 3px solid #e94560;
+}
+
+.news-content {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.news-content h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #e94560;
+    text-align: center;
+}
+
+.news-content p {
+    font-size: 14px;
+    margin-bottom: 15px;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.read-more-btn {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    background-color: #e94560;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 14px;
+    transition: background-color 0.3s, transform 0.3s;
+    text-align: center;
+    align-self: center;
+}
+
+.read-more-btn:hover {
+    background-color: #d63447;
+    transform: scale(1.1);
+}
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination {
+    display: flex;
+    gap: 10px;
+}
+
+.pagination-link {
+    color: #f0f0f0;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.pagination-link:hover {
+    background-color: #e94560;
+    color: #fff;
+}
+
+.pagination-ellipsis {
+    color: #f0f0f0;
+    padding: 8px 0;
+}
+
+/* Botão Fechar */
+.close-btn {
+    background-color: #e94560;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.close-btn:hover {
+    background-color: #d63447;
+    transform: scale(1.1);
+}
+
+/* Estilo do Footer */
+footer {
+    background: linear-gradient(90deg, #0f3460, #16213e);
+    color: #f0f0f0;
+    padding: 30px 15px;
+    text-align: center;
+    border-top: 3px solid #e94560;
+    margin-top: auto;
+    box-shadow: 0 0 10px rgba(233, 69, 96, 0.5), 0 0 20px rgba(233, 69, 96, 0.5), 0 0 30px rgba(233, 69, 96, 0.5);
+    transition: box-shadow 1s ease;
+}
+
+footer:hover {
+    box-shadow: 0 0 20px rgba(233, 69, 96, 0.8), 0 0 40px rgba(233, 69, 96, 0.8), 0 0 60px rgba(233, 69, 96, 0.8);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.footer-content p {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.footer-menu {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.footer-menu a {
+    text-decoration: none;
+    color: #e94560;
+    font-size: 14px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.footer-menu a:hover {
+    color: #d63447;
+}
+
+.whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 1em;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #25d366;
+    padding: 10px 15px;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, background-color 0.3s;
+    z-index: 1000;
+}
+
+.whatsapp-button:hover {
+    transform: scale(1.05);
+    background-color: #1ebe60;
+}
+
+.whatsapp-bubble {
+    display: flex;
+    align-items: center;
+}
+
+.whatsapp-logo {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+/* Estilo da barra de rolagem */
+::-webkit-scrollbar {
+    width: 12px; /* Largura da barra de rolagem */
+}
+
+::-webkit-scrollbar-track {
+    background-color: #16213e; /* Cor de fundo da pista da barra de rolagem */
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #0077b6, #00bfff); /* Gradiente azul para o polegar */
+    border-radius: 6px; /* Arredondamento das bordas do polegar */
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5), 0 0 20px rgba(0, 123, 255, 0.5); /* Efeito neon azul */
+    transition: box-shadow 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    box-shadow: 0 0 20px rgba(0, 123, 255, 0.8), 0 0 40px rgba(0, 123, 255, 0.8); /* Intensifica o efeito neon ao passar o mouse */
+}

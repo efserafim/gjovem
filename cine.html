@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="cine.css">
+    <title>Geração Eucarística</title>
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="./index.html">
+                    <img src="./logo/logo sem fundo.png" alt="Logo Retiro">
+            </div>
+            <nav class="menu">
+                <ul class="menu-list">
+                    <li><a href="./index.html" class="menu-link">Início</a></li>
+                    <li><a href="./paroquia.html" class="menu-link">Paróquia</a></li>
+                    <li><a href="./evangelho.html" class="menu-link">Liturgia Diária</a></li>
+                    <li><a href="sobre.html" class="menu-link">Sobre Nós</a></li>
+                </ul>
+            </nav>
+            <button class="cta-button">
+                <a href="https://www.instagram.com/geracao.eucaristica/" target="_blank" rel="noopener noreferrer">
+                    <img src="./icon/instagram.png" alt="Instagram" class="instagram-icon">
+                    Siga-nos
+                </a>
+            </button>
+            <button class="hamburger-btn" aria-label="Abrir menu">
+                <span class="hamburger-icon"></span>
+            </button>
+        </div>
+    </header>
+    
+    <!-- Conteúdo Principal -->
+    <main>
+        <!-- Seção da Foto do Grupo -->
+        <section class="foto-grupo-section">
+            <div class="container">
+                <h2>1º CINE GERAÇÃO - THE CHOSEN: A ÚLTIMA CEIA</h2>
+                <div class="foto-grupo-container">
+                    <img src="./fotos  cards/CINE GERACAO.jpeg" alt="CINEMA" class="foto-grupo">
+                </div>
+                <!-- Texto Adicional -->
+                <div class="texto-descritivo">
+                    <p><strong>🎬 1º CINE GERAÇÃO - Uma Experiência Inesquecível! 🎬</strong></p>
+                    <p>
+                        Assistir a um bom filme é sempre uma ótima ideia, e que tal fazermos isso juntos em um cinema de verdade? Para aprofundarmos no mistério da <strong>Paixão de Nosso Senhor Jesus Cristo</strong>, assistiremos a uma das séries mais famosas sobre a vida de Jesus.
+                    </p>
+                    <p><strong>📅 Data:</strong> 10/04 (Quinta-Feira)</p>
+                    <p><strong>🕗 Horário:</strong> 20h</p>
+                    <p><strong>📍 Local:</strong> Cinema MaxiMovie - R. Beatriz Amaral Pereira, 106 - Bacaxá</p>
+                    <p><strong>💰 Valor:</strong> R$ 10,00</p>
+                    <p><em>(Inclui uma Pipoca Cortesia e um Guaravita)</em></p>
+                    <p>
+                        <strong>🔹 Formas de Pagamento:</strong><br>
+                        - <strong>Pix:</strong> efserafim@yahoo.com.br ou <a href="#">Clique Aqui</a><br>
+                        - <strong>Dinheiro:</strong> Entre em contato com Eduardo - (22) 99247-3724
+                    </p>
+                    <p>
+                        <strong>📩 Após o pagamento:</strong><br>
+                        Envie o comprovante no campo abaixo.
+                    </p>
+                    <p>
+                        <strong>⚠️ INSCRIÇÕES ATÉ O DIA 3 DE ABRIL ⚠️</strong><br>
+                        É necessário enviar a listagem com o número de participantes, então garanta sua vaga dentro do prazo!
+                    </p>
+                    <p><strong>Esperamos por você! ✨</strong></p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Rodapé -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 GRUPO JOVEM GERAÇÃO EUCARÍSTICA. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <a href="https://chat.whatsapp.com/GW4XWNOKzIPLmZEjIwWWMD" class="whatsapp-button" target="_blank" rel="noopener noreferrer">
+        <div class="whatsapp-bubble">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo" class="whatsapp-logo">
+            WhatsApp
+        </div>
+    </a>
+
+    <!-- Script para o menu responsivo -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburgerBtn = document.querySelector('.hamburger-btn');
+            const menu = document.querySelector('.menu');
+
+            if (!hamburgerBtn || !menu) {
+                console.error('Erro: Botão hambúrguer ou menu não encontrados no DOM.');
+                return;
+            }
+
+            hamburgerBtn.addEventListener('click', () => {
+                hamburgerBtn.classList.toggle('active');
+                menu.classList.toggle('show');
+            });
+
+            const menuLinks = document.querySelectorAll('.menu-link');
+
+            if (menuLinks.length === 0) {
+                console.warn('Aviso: Nenhum link encontrado no menu.');
+            }
+
+            menuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    menu.classList.remove('show');
+                    hamburgerBtn.classList.remove('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
